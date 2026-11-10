@@ -63,7 +63,8 @@ function cloner_clone(string $url, string $target_dir, array $payloads, ?string 
     //
     // Fall back to plain HTTP fetch when chrome isn't installed or the render
     // produced no usable output.
-    [$body, $render_mode] = [null, 'http'];
+    $body = null;
+    $render_mode = 'http';
     $rendered = cloner_render_with_chrome($url);
     if ($rendered['html'] !== null) {
         $body        = $rendered['html'];
